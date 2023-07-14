@@ -4,11 +4,11 @@ import pickle
 import os
 
 
-lokasi_gambar_wajah = os.listdir("Images") # 1. tembak lokasi gambar
+lokasi_gambar_wajah = os.listdir("images") # 1. tembak lokasi gambar
 list_gambar_wajah = [] # 2. simpan nanti di array ini
 nama_orang = [] # 3. untuk menyimpan nama file foto (nama orang)
 for lokasi in lokasi_gambar_wajah: # 3. Iterasi setiap elemen di lokasi_gambar_wajah dan masukan ke list_gambar_wajah
-    list_gambar_wajah.append(cv2.imread(os.path.join("Images", lokasi))) 
+    list_gambar_wajah.append(cv2.imread(os.path.join("images", lokasi))) 
     nama_orang.append(os.path.splitext(lokasi)[0]) # 5. fungsi untuk memisahkan ekstensi dari nama file
 
 def encodeGambar(list_gambar_wajah): # 1. membuat fungsi untuk encode agar bisa dibaca oleh face recognition
