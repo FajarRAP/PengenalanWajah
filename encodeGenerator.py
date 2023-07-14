@@ -2,6 +2,14 @@ import cv2
 import face_recognition
 import pickle
 import os
+import firebase_admin
+from firebase_admin import credentials, db, storage
+
+cred = credentials.Certificate("serviceAccountKey.json")
+firebase_admin.initialize_app(cred, {
+    "databaseURL" : "https://basisdatapengenalanwajah-default-rtdb.firebaseio.com/",
+    "storageBucket" : "basisdatapengenalanwajah.appspot.com"
+})
 
 
 lokasi_gambar_wajah = os.listdir("images") # 1. tembak lokasi gambar
@@ -10,6 +18,13 @@ nama_orang = [] # 3. untuk menyimpan nama file foto (nama orang)
 for lokasi in lokasi_gambar_wajah: # 3. Iterasi setiap elemen di lokasi_gambar_wajah dan masukan ke list_gambar_wajah
     list_gambar_wajah.append(cv2.imread(os.path.join("images", lokasi))) 
     nama_orang.append(os.path.splitext(lokasi)[0]) # 5. fungsi untuk memisahkan ekstensi dari nama file
+    
+    # upload ke storage firebase
+    nama_file = f'{"images"}/{lokasi}'
+    bucket = storage.bucket()
+    blob = bucket.blob(nama_file)
+    blob.upload_from_filename(nama_file)
+    # akhir dari upload
 
 def encodeGambar(list_gambar_wajah): # 1. membuat fungsi untuk encode agar bisa dibaca oleh face recognition
     hasil_encode = [] # 2. untuk simpan hasil encode
