@@ -9,29 +9,45 @@ firebase_admin.initialize_app(cred,{
 ref = db.reference("Orang")
 
 data = {
-    "191102":
+    "2100018165":
         {
             "nama" : "Fajar Riansyah Aryda Putra",
-            "nim" : "2100018165",
             "prodi" : "Informatika",
+            "ipk" : 3.80,
+            "jenis_kelamin" : "Male",
+            "angkatan" : 2021,
             "smt" : 4,
             "terakhir_hadir" : "14-7-2023 16:25:13" 
         },
-    "090403":
+    "2100018157":
         {
             "nama" : "Dimas Thaqif Attaulah",
-            "nim" : "2100018157",
             "prodi" : "Informatika",
+            "ipk" : 3.52,
+            "jenis_kelamin" : "Male",
+            "angkatan" : 2021,
             "smt" : 4,
             "terakhir_hadir" : "12-7-2023 06:15:33" 
         },
-    "999999":
+    "2100018152":
         {
             "nama" : "Gagah Aryo Wijoseno",
-            "nim" : "2100018152",
             "prodi" : "Informatika",
+            "ipk" : 3.57,
+            "jenis_kelamin" : "Male",
+            "angkatan" : 2021,
             "smt" : 4,
             "terakhir_hadir" : "17-8-2023 17:05:37" 
+        },
+    "2100018170":
+        {
+            "nama" : "Oktaria Purnamasari",
+            "prodi" : "Informatika",
+            "ipk" : 3.93,
+            "jenis_kelamin" : "Female",
+            "angkatan" : 2021,
+            "smt" : 4,
+            "terakhir_hadir" : "14-7-2023 23:46:44" 
         },
 }
 
